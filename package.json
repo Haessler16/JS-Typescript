@@ -8,7 +8,7 @@
     "platzi"
   ],
   "scripts": {
-    "start": "parcel index.html ejersicios/index.html ejersicios/**/*.html"
+    "start": "parcel index.html ejercicios/index.html ejercicios/**/*.html"
   },
   "devDependencies": {
     "live-server": "^1.2.1"
