@@ -1,6 +1,6 @@
-import MediaPlayer from "./MediaPlayer.js"
-import AutoPlay from "./plugins/AutoPlay.js"
-import AutoPause from "./plugins/AutoPause.js"
+import MediaPlayer from "./MediaPlayer"
+import AutoPlay from "./plugins/AutoPlay"
+import AutoPause from "./plugins/AutoPause"
 
 const $video = document.querySelector("video")
 const $button = document.querySelectorAll("button")
@@ -14,7 +14,5 @@ $button[0].onclick = ()=> player.toggle()
 $button[1].onclick = ()=> player.toggleMute()
 
 if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("/sw.js")
-    .then(success => console.log("Sw Register"))
-    .catch(error => console.log(error ))
+    navigator.serviceWorker.register("/sw.js").catch(error => console.log(error.message))
 }
