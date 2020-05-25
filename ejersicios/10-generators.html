@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generator</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go fordback</a>
+    <h1>Ve a la <code>consola</code></h1>
+    <script>
+        //Un Generador Simple
+       function* simpleGenerator(){
+        console.log("START");
+        yield "Bum"
+        yield "Here we go"
+        console.log("END");
+        yield "Katum"
+       }
+       const gen = simpleGenerator()
+
+       //Usando un loop While
+       function* loopGenerator(){
+           let id = 1
+           while(true){
+            id= id + 1
+            yield id
+           }
+       }
+
+       const idGenerator = loopGenerator()
+
+       //Usando un loop While fase 2 parametros
+       function* resetIdGenerator(){
+           let id = 1
+           let reset
+           while(true){
+            reset = yield id
+                if(reset){
+                // debugger
+                   id = 1
+                }else{
+                    id = id +1
+                }
+           }
+       }
+
+       const parametrosGenerator = resetIdGenerator()
+       //Secuencia de Fibonacci
+       function* fibonacciGenerator(){
+        let a = 1
+        let b = 1
+        while(true){
+            let result = a + b
+            a = b
+            b = result
+            yield result
+        }
+       }
+       const fibonacci = fibonacciGenerator()
+    </script>
+</body>
+</html>

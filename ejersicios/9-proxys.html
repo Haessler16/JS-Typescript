@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Proxy</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go fordback</a>
+    <h1>Ve a la <code>consola</code></h1>
+    <script>
+        const target= {
+            red: "Rojo",
+            green:"Verde",
+            blue: "Azul",
+        }
+        const handler= {
+            get(obj, prop){
+                debugger
+                if(prop in obj){
+                   return obj[prop]
+                }
+                const suggestion = Object.keys(obj).find(key => {
+                    return Levenshtein.get(key, prop) <= 3
+                })
+
+                if(suggestion){
+                    console.log(`${prop} no se encontro. Quisistes decir ${suggestion}`);
+                }
+                return obj[prop]
+            }
+        }
+        
+        const bum = new Proxy(target, handler)
+    </script>
+</body>
+</html>

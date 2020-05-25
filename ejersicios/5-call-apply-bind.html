@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go fordback</a>
+    <h1>Ve a la <code>consola</code></h1>
+
+    <br>
+    <hr>
+    <br>
+
+    <ul>
+        <li><button class="bum">Aprender</button></li>
+        <li><button class="bum">Aprender Mas</button></li>
+        <li><button class="bum">Nunca dejar de Aprender</button></li>
+    </ul>
+    <script>
+        //Metodo Call
+       function saludar(name){
+           console.log(`Hola yo soy ${this.name}`);
+       }
+       const person = {
+           name: "Tovim",
+       }
+       saludar.call(person)
+
+       //Metodo Call con Parametros.
+       function caminar(metros, direccion){
+           console.log(`${this.name} camina ${metros} metros hacia el ${direccion}`);
+       }
+       const tovim = {
+           name: "Thovim"
+       }
+       caminar.call(tovim, 200, "norte")
+
+       //Apply
+       saludar.apply(person)
+
+       //Parametros con Apply
+       const data = [400, "norteste"]
+       caminar.apply(tovim, data)
+
+       //Bind
+       const daniel = {name: "Danel"}
+       const saludarTvm = saludar.bind(daniel)
+       saludarTvm()
+
+       //Parametros con Bind
+       const danielCamina= caminar.bind(daniel, 800)
+       danielCamina("sur")
+
+       const buttons = document.getElementsByClassName("bum")
+       
+       Array.prototype.forEach.call(buttons, button => {
+        button.onclick = ()=> alert("YEAH")
+       })
+    </script>
+</body>
+</html>
